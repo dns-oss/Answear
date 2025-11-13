@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceShape Pricing Manager Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles based on requirements */
+        body {
+            background-color: #111827; /* Dark Gray Background */
+            font-family: 'Inter', sans-serif;
+        }
+        .report-card {
+            background-color: #1f2937; /* Slightly Lighter Gray Card Background */
+            border-radius: 0.75rem; /* Rounded Corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .header-bg {
+            background-color: #2563eb; /* Medium Blue (bg-blue-600) Accent */
+        }
+        .positive-text {
+            color: #4ade80; /* text-green-400 */
+        }
+        .negative-text {
+            color: #f87171; /* text-red-400 */
+        }
+        .table-header {
+            background-color: #374151; /* bg-gray-700 */
+        }
+        .table-row-odd {
+            background-color: #1f2937;
+        }
+        .table-row-even {
+            background-color: #313e4b; /* Subtle alternating color for readability */
+        }
+        /* Style for the graph container (to simulate the look) */
+        .graph-container {
+            height: 300px;
+            background: #000;
+            border-radius: 0.375rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d1d5db;
+            font-size: 1.25rem;
+        }
+
+        /* Utility for the download button */
+        #downloadButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function downloadReport() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Competitive_Analysis_Report.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</head>
+<body class="p-8">
+
+    <div class="max-w-6xl mx-auto report-card text-gray-200">
+
+        <div class="header-bg p-6 rounded-t-lg">
+            <h1 class="text-3xl font-bold text-white">Pricing Manager Report: 15% Discount Impact Analysis</h1>
+            <p class="text-sm text-blue-200 mt-1">Prepared for Answear Poland | November 13, 2025</p>
+        </div>
+
+        <div class="p-6 space-y-8">
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">1. Executive Summary / Streszczenie Wykonawcze</h2>
+                <blockquote class="border-l-4 border-blue-600 pl-4 py-2 italic text-gray-300">
+                    [cite_start]The 15% discount on branded products would reduce **revenue by 3,389,222 PLN** (a 15.0% reduction from the 22.59M PLN baseline) while dramatically improving the competitive position from a **33.3% to 64.4% win rate** across 423,900 competitor comparisons[cite: 135, 136, 138, 112]. [cite_start]The discount creates a powerful competitive positioning but requires **volume growth of >15%** to maintain current revenue levels[cite: 184].
+                </blockquote>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">2. Financial Analysis / Analiza Finansowa</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr class="table-header text-xs uppercase tracking-wider text-left text-gray-100">
+                                <th class="px-4 py-2 font-medium">Metric / Metryka</th>
+                                <th class="px-4 py-2 font-medium">Current / Obecne</th>
+                                <th class="px-4 py-2 font-medium">With 15% Discount / Z 15% Zniżką</th>
+                                <th class="px-4 py-2 font-medium">Impact / Wpływ</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700 text-sm">
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2">Products Analyzed / Produkty przeanalizowane</td>
+                                [cite_start]<td class="px-4 py-2">54,082 [cite: 138]</td>
+                                [cite_start]<td class="px-4 py-2">54,082 [cite: 138]</td>
+                                <td class="px-4 py-2">—</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="px-4 py-2">Total Revenue / Łączne przychody</td>
+                                [cite_start]<td class="px-4 py-2">22,594,815 PLN [cite: 138]</td>
+                                [cite_start]<td class="px-4 py-2">19,205,592 PLN [cite: 138]</td>
+                                [cite_start]<td class="px-4 py-2 negative-text">-3,389,222 PLN [cite: 138]</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2">Average Price / Średnia cena</td>
+                                [cite_start]<td class="px-4 py-2">417.79 PLN [cite: 138]</td>
+                                [cite_start]<td class="px-4 py-2">355.12 PLN [cite: 138]</td>
+                                [cite_start]<td class="px-4 py-2 negative-text">-62.67 PLN [cite: 138]</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="px-4 py-2">Revenue Reduction / Redukcja przychodów</td>
+                                <td class="px-4 py-2">—</td>
+                                <td class="px-4 py-2">—</td>
+                                [cite_start]<td class="px-4 py-2 negative-text">15.0% [cite: 138]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">3. Competitive Position Analysis / Analiza Pozycji Konkurencyjnej</h2>
+                
+                <h3 class="text-lg font-medium mt-6 mb-2 text-gray-300">Price Positioning Summary</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <tbody class="divide-y divide-gray-700 text-sm">
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2 font-semibold">Your Current Average Price:</td>
+                                [cite_start]<td class="px-4 py-2">397.85 PLN [cite: 60]</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="px-4 py-2 font-semibold">Competitor Average Price:</td>
+                                [cite_start]<td class="px-4 py-2">363.04 PLN [cite: 61]</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2 font-semibold">Your Discounted Average Price:</td>
+                                [cite_start]<td class="px-4 py-2">338.17 PLN [cite: 62]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="mt-4 italic text-gray-300">
+                    [cite_start]**Strategic Insight:** The 15% discount positions you **6.8% below** the average competitor pricing, transforming you from premium-priced to a **market leader**[cite: 63, 64].
+                </p>
+
+                <h3 class="text-lg font-medium mt-6 mb-2 text-gray-300">Competitive Wins / Wygrane Konkurencyjne</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr class="table-header text-xs uppercase tracking-wider text-left text-gray-100">
+                                <th class="px-4 py-2 font-medium">Metric / Metryka</th>
+                                <th class="px-4 py-2 font-medium">Current / Obecne</th>
+                                <th class="px-4 py-2 font-medium">With Discount / Z Zniżką</th>
+                                <th class="px-4 py-2 font-medium">Change / Zmiana</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-700 text-sm">
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2">Competitor Comparisons / Porównania konkurencyjne</td>
+                                [cite_start]<td class="px-4 py-2">423,900 [cite: 58, 112]</td>
+                                [cite_start]<td class="px-4 py-2">423,900 [cite: 58, 112]</td>
+                                <td class="px-4 py-2">—</td>
+                            </tr>
+                            <tr class="table-row-even">
+                                <td class="px-4 py-2">Competitive Wins / Wygrane konkurencyjne</td>
+                                [cite_start]<td class="px-4 py-2">141,038 (33.3%) [cite: 58, 112]</td>
+                                [cite_start]<td class="px-4 py-2">272,889 (64.4%) [cite: 58, 112]</td>
+                                [cite_start]<td class="px-4 py-2 positive-text">+131,851 [cite: 58]</td>
+                            </tr>
+                            <tr class="table-row-odd">
+                                <td class="px-4 py-2">Win Rate Improvement / Poprawa wskaźnika wygranych</td>
+                                <td class="px-4 py-2">—</td>
+                                <td class="px-4 py-2">—</td>
+                                [cite_start]<td class="px-4 py-2 positive-text">+31.1% [cite: 58]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-medium mt-6 mb-2 text-gray-300">Top Brand Revenue Impact</h3>
+                <div class="graph-container text-sm">
+                    [cite_start] (Simulated Bar Chart Data: Guess is highest, followed by Tommy Hilfiger and Boss at 122,783.3 PLN) [cite: 101, 103]
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">4. Risk Assessment / Ocena Ryzyka</h2>
+                <h3 class="text-lg font-medium mb-2 negative-text">High Impact Considerations / Kluczowe Zagadnienia</h3>
+                <ul class="list-disc ml-6 space-y-2 text-gray-300">
+                    [cite_start]<li>**Margin Erosion:** No cost data available - immediate profitability analysis is required[cite: 17, 74, 164].</li>
+                    [cite_start]<li>**Brand Positioning:** The shift from premium to competitive pricing may negatively affect luxury brand perception[cite: 18, 74, 165].</li>
+                    [cite_start]<li>**Customer Expectations:** A temporary discount may create permanent price reduction expectations among customers[cite: 19, 75, 162, 166].</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">5. Strategic Opportunities / Możliwości Strategiczne</h2>
+                <ul class="list-disc ml-6 space-y-2 text-gray-300">
+                    [cite_start]<li class="positive-text">**Market Dominance:** A 31.1% increase in competitive wins across premium brands[cite: 26, 169].</li>
+                    [cite_start]<li class="positive-text">**Customer Acquisition:** Competitive pricing on brands like **Guess, Tommy Hilfiger, and Boss** opens new market segments[cite: 27, 170].</li>
+                    [cite_start]<li class="positive-text">**Volume Growth:** A potential **2x increase** in competitive advantage could drive significant sales lift[cite: 28, 171].</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-semibold mb-3 text-white">6. Implementation Recommendations / Rekomendacje Wdrożenia</h2>
+                <h3 class="text-lg font-medium mb-2 text-gray-300">Immediate Actions / Działania Natychmiastowe</h3>
+                <ol class="list-decimal ml-6 space-y-2 text-gray-300">
+                    [cite_start]<li>**Cost Analysis (Critical):** Obtain cost data for margin impact analysis *before* full implementation[cite: 34, 177].</li>
+                    [cite_start]<li>**A/B Testing:** Test the strategy first on **high-impact brands** such as Guess and Tommy Hilfiger[cite: 35, 178].</li>
+                    [cite_start]<li>**Volume Modeling:** Project the sales lift needed to offset the **3.39M PLN revenue reduction**[cite: 36, 179].</li>
+                </ol>
+            </section>
+
+            <section class="mt-8 pt-4 border-t border-gray-700">
+                <h2 class="text-xl font-bold mb-3 text-white">Bottom Line / Podsumowanie</h2>
+                <p class="text-lg italic text-gray-300">
+                    [cite_start]The discount creates powerful competitive positioning but requires volume growth **>15%** to maintain current revenue levels[cite: 184].
+                </p>
+            </section>
+
+            <section class="text-center pt-8">
+                <h3 class="text-xl font-semibold mb-4 text-white">Book a Strategy Session</h3>
+                <a href="https://meetings-eu1.hubspot.com/jonas-jensen" target="_blank" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition duration-200">
+                    Book a Meeting
+                </a>
+            </section>
+
+        </div>
+    </div>
+
+    <button id="downloadButton" onclick="downloadReport()" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-lg transition duration-200">
+        Download Report
+    </button>
+
+</body>
+</html>
